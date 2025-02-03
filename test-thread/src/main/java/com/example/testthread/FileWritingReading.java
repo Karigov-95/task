@@ -44,7 +44,7 @@ public class FileWritingReading {
 
         private void writeEvenNumber() {
             try {
-                int evenNumber = random.nextInt(50) * 2; // Генерируем четное число
+                int evenNumber = random.nextInt(50) * 2;
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
 
                     lock.lock();
@@ -98,7 +98,7 @@ public class FileWritingReading {
             while (true) {
                 readLastNumbers();
                 try {
-                    Thread.sleep(2000); // Задержка для демонстрации чтения
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                 }
@@ -114,7 +114,7 @@ public class FileWritingReading {
                     lastLine = line;
                 }
                 if (lastLine != null) {
-                    System.out.println("Последнее написанное число: " + lastLine);
+                    log.info("Последнее написанное число: {}", lastLine);    
                 }
             } catch (IOException e) {
                 e.printStackTrace();
